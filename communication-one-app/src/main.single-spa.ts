@@ -9,7 +9,6 @@ import {
 } from 'single-spa-angular';
 
 import { AppModule } from './app/app.module';
-
 import { environment } from './environments/environment';
 import { singleSpaPropsSubject } from './single-spa/single-spa-props';
 
@@ -24,9 +23,10 @@ const lifecycles = singleSpaAngular({
       AppModule
     );
   },
-  template: '<header-app-root />',
+  template: '<communication-one-app-root />',
   Router,
-  domElementGetter: () => document.getElementById('header'),
+  domElementGetter: () => document.getElementById('communication1'),
+
   NgZone,
 });
 
