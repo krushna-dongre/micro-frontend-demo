@@ -19,6 +19,8 @@
       {
         "imports": {
           "youtube-app": "http://localhost:8080/main.js",
+          "communication-one-app": "http://localhost:8084/main.js",
+          "communication-two-app": "http://localhost:8085/main.js",
           "welcome-app": "http://localhost:8082/main.js",
           "footer-app": "http://localhost:8083/main.js",
           "header-app": "http://localhost:8081/main.js",
@@ -87,6 +89,26 @@
           }
         );
 
+        singleSpa.registerApplication(
+          "communication-one-app",
+          function () {
+            return System.import("communication-one-app");
+          },
+          function (location) {
+            return location.pathname === "/communication";
+          }
+        );
+
+        singleSpa.registerApplication(
+          "communication-two-app",
+          function () {
+            return System.import("communication-two-app");
+          },
+          function (location) {
+            return location.pathname === "/communication";
+          }
+        );
+
         singleSpa.start();
       });
     </script>
@@ -98,6 +120,14 @@
       <div style="width: 5%;"></div>
       <div id="Angular" style="height: 70%; width: 100%;"></div>
     </div>
+
+    <div id="mainDiv2" class="d-flex justify-content-around">
+      <div style="width: 2%;"></div>
+      <div id="communication1" style="height: 70%; width: 100%;"></div>
+      <div style="width: 5%;"></div>
+      <div id="communication2" style="height: 70%; width: 100%;"></div>
+    </div>
+
     <div id="footer"></div>
     <!-- <import-map-overrides-full></import-map-overrides-full> -->
   </body>
